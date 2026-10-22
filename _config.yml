@@ -1,0 +1,9 @@
+title: "FTS-401: Red Dot Mobility (Electric Mobility)"
+description: "CDE4301 Design and Innovation final report: redesigning the frame and battery bay of an electric scrambler motorcycle with Red Dot Mobility."
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+exclude:
+  - README.md

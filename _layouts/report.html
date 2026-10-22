@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <button class="toc-toggle" aria-label="Contents" onclick="document.body.classList.toggle('toc-open')">Contents</button>
+  <nav class="toc" id="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol id="toc-list"></ol>
+  </nav>
+  <main class="page">
+    {{ content }}
+    <footer class="foot">CDE4301 Design and Innovation · National University of Singapore · AY2026/27</footer>
+  </main>
+  <script>
+    (function () {
+      var list = document.getElementById('toc-list');
+      var heads = document.querySelectorAll('.page h2[id], .page h3[id]');
+      heads.forEach(function (h) {
+        var li = document.createElement('li');
+        li.className = h.tagName === 'H3' ? 'sub' : '';
+        var a = document.createElement('a');
+        a.href = '#' + h.id; a.textContent = h.textContent;
+        a.onclick = function () { document.body.classList.remove('toc-open'); };
+        li.appendChild(a); list.appendChild(li);
+      });
+      var links = list.querySelectorAll('a');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, { rootMargin: '0px 0px -75% 0px' });
+      heads.forEach(function (h) { obs.observe(h); });
+      document.querySelectorAll('.page table').forEach(function (t) {
+        var w = document.createElement('div'); w.className = 'table-wrap';
+        t.parentNode.insertBefore(w, t); w.appendChild(t);
+      });
+    })();
+  </script>
+</body>
+</html>
