@@ -19,3 +19,11 @@ Web version of `CDE4301A_Interim_Presentation.pptx`, live at https://najan21.git
 - Intro video: `slides/media/intro.mp4`, trimmed to the same segment as in PowerPoint and re-encoded so it starts playing immediately.
 - Navigate with arrow keys, click, swipe or scroll; `F` for full screen; `#5` in the URL jumps to slide 5.
 - The original .pptx is in the folder and linked from the download button.
+
+## Interim report (`interim-report/`)
+
+Web version of `RED_DOT_MOBILITY_Interim_report.docx`, live at https://najan21.github.io/fyp-report/interim-report/
+
+- Converted directly from the .docx: same text, figures, tables, fonts, sizes, alignment and image crops as the Word file. Each Word page break starts a new sheet.
+- Images in `interim-report/media/` are the original files from the .docx, unchanged.
+- Entries in the Table of Contents link to their sections.
